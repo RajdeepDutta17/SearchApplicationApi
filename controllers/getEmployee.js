@@ -1,27 +1,27 @@
 const employeeData = require("../models/employeeModel");
 
-// const getEmployeeData = async (req, res) => {
-//   try {
-//     const data = await employeeData.find();
-//     if (!data.length) {
-//       return res.status(200).json({
-//         status: 0,
-//         msg: "Could not fetch the required data!!",
-//       });
-//     }
-//     res.status(200).json({
-//       status: 1,
-//       msg: "Data fetched successfully!!!",
-//       data,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({
-//       status: 0,
-//       msg: "Server Error!!",
-//     });
-//   }
-// };
+const getEmployeeData = async (req, res) => {
+  try {
+    const data = await employeeData.find();
+    if (!data.length) {
+      return res.status(200).json({
+        status: 0,
+        msg: "Could not fetch the required data!!",
+      });
+    }
+    res.status(200).json({
+      status: 1,
+      msg: "Data fetched successfully!!!",
+      data,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      status: 0,
+      msg: "Server Error!!",
+    });
+  }
+};
 
 const getEmployeeByQuery = async (req, res) => {
   try {
@@ -58,4 +58,4 @@ const getEmployeeByQuery = async (req, res) => {
   }
 };
 
-module.exports = { getEmployeeByQuery };
+module.exports = { getEmployeeByQuery, getEmployeeData };
